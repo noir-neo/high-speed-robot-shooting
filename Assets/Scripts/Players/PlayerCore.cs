@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 
-public class PlayerCore : MonoBehaviour
+namespace Players
 {
-    [SerializeField] private PlayerParameters _parameters;
-    public PlayerParameters PlayerParameters => _parameters;
+    public class PlayerCore : MonoBehaviour
+    {
+        [SerializeField] private PlayerParameters _parameters;
+        public PlayerParameters PlayerParameters => _parameters;
+    }
 }
