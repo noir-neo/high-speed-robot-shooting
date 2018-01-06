@@ -10,20 +10,20 @@ namespace Players.InputImpls
     {
         private readonly static List<Tuple<KeyCode, Vector3>> Movements = new List<Tuple<KeyCode, Vector3>>
         {
-            new Tuple<KeyCode, Vector3>(KeyCode.W, Vector3.forward),
-            new Tuple<KeyCode, Vector3>(KeyCode.A, Vector3.left),
-            new Tuple<KeyCode, Vector3>(KeyCode.S, Vector3.back),
-            new Tuple<KeyCode, Vector3>(KeyCode.D, Vector3.right),
-            new Tuple<KeyCode, Vector3>(KeyCode.LeftShift, Vector3.up),
-            new Tuple<KeyCode, Vector3>(KeyCode.LeftControl, Vector3.down),
+            Tuple.Create(KeyCode.W, Vector3.forward),
+            Tuple.Create(KeyCode.A, Vector3.left),
+            Tuple.Create(KeyCode.S, Vector3.back),
+            Tuple.Create(KeyCode.D, Vector3.right),
+            Tuple.Create(KeyCode.LeftShift, Vector3.up),
+            Tuple.Create(KeyCode.LeftControl, Vector3.down),
         };
 
         private readonly static List<Tuple<KeyCode, Vector2>> Aims = new List<Tuple<KeyCode, Vector2>>
         {
-            new Tuple<KeyCode, Vector2>(KeyCode.UpArrow, Vector2.up),
-            new Tuple<KeyCode, Vector2>(KeyCode.LeftArrow, Vector2.left),
-            new Tuple<KeyCode, Vector2>(KeyCode.DownArrow, Vector2.down),
-            new Tuple<KeyCode, Vector2>(KeyCode.RightArrow, Vector2.right),
+            Tuple.Create(KeyCode.UpArrow, Vector2.up),
+            Tuple.Create(KeyCode.LeftArrow, Vector2.left),
+            Tuple.Create(KeyCode.DownArrow, Vector2.down),
+            Tuple.Create(KeyCode.RightArrow, Vector2.right),
         };
 
         private IObservable<Unit> UpdateAsObservableForPlayerId(PlayerId playerId)
