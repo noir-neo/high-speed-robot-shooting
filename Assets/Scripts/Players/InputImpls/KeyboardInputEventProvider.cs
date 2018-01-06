@@ -8,7 +8,7 @@ namespace Players.InputImpls
 {
     public class KeyboardInputEventProvider : MonoBehaviour, IInputEventProvider
     {
-        private readonly static List<Tuple<KeyCode, Vector3>> Movements = new List<Tuple<KeyCode, Vector3>>
+        private static readonly List<Tuple<KeyCode, Vector3>> Movements = new List<Tuple<KeyCode, Vector3>>
         {
             Tuple.Create(KeyCode.W, Vector3.forward),
             Tuple.Create(KeyCode.A, Vector3.left),
@@ -18,7 +18,7 @@ namespace Players.InputImpls
             Tuple.Create(KeyCode.LeftControl, Vector3.down),
         };
 
-        private readonly static List<Tuple<KeyCode, Vector2>> Aims = new List<Tuple<KeyCode, Vector2>>
+        private static readonly List<Tuple<KeyCode, Vector2>> Aims = new List<Tuple<KeyCode, Vector2>>
         {
             Tuple.Create(KeyCode.UpArrow, Vector2.up),
             Tuple.Create(KeyCode.LeftArrow, Vector2.left),
@@ -26,17 +26,19 @@ namespace Players.InputImpls
             Tuple.Create(KeyCode.RightArrow, Vector2.right),
         };
 
+        private static readonly KeyCode Shoot = KeyCode.E;
+
         private IObservable<Unit> UpdateAsObservableForPlayerId(PlayerId playerId)
         {
             return this.UpdateAsObservable().Where(_ => {
-                var currentPlayerId = !Input.GetKey(KeyCode.RightAlt) ? PlayerId.Player1 : PlayerId.Player2;
+                var currentPlayerId = !Input.GetKey(KeyCode.RightShift) ? PlayerId.Player1 : PlayerId.Player2;
                 return currentPlayerId == playerId;
             });
         }
 
         public IObservable<Vector3> MoveDirection(PlayerId playerId)
         {
-            return this.UpdateAsObservableForPlayerId(playerId).Select(_ => {
+            return UpdateAsObservableForPlayerId(playerId).Select(_ => {
                 var result = Vector3.zero;
 
                 foreach (var movement in Movements)
@@ -53,7 +55,7 @@ namespace Players.InputImpls
 
         public IObservable<Vector2> AimDirection(PlayerId playerId)
         {
-            return this.UpdateAsObservableForPlayerId(playerId).Select(_ => {
+            return UpdateAsObservableForPlayerId(playerId).Select(_ => {
                 var result = Vector2.zero;
 
                 foreach (var aim in Aims)
@@ -66,6 +68,13 @@ namespace Players.InputImpls
 
                 return result.normalized;
             }).TakeUntilDestroy(this);
+        }
+
+        public IObservable<bool> ShootButton(PlayerId playerId)
+        {
+            return UpdateAsObservableForPlayerId(playerId)
+                .Select(_ => Input.GetKey(Shoot))
+                .TakeUntilDestroy(this);
         }
     }
 

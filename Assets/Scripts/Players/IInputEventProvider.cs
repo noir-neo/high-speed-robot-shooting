@@ -7,5 +7,6 @@ namespace Players
     {
         IObservable<Vector3> MoveDirection(PlayerId playerId);
         IObservable<Vector2> AimDirection(PlayerId playerId);
+        IObservable<bool> ShootButton(PlayerId playerId);
     }
 }
