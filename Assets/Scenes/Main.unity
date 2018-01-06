@@ -166,6 +166,14 @@ Prefab:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 630123374}
+    - target: {fileID: 1958926443291440, guid: c6a78c2891a2e4f58b689c3895571716, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462623562626304, guid: c6a78c2891a2e4f58b689c3895571716, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6a78c2891a2e4f58b689c3895571716, type: 2}
   m_IsPrefabParent: 0
@@ -330,14 +338,6 @@ Prefab:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 476854301}
-    - target: {fileID: 1958926443291440, guid: c6a78c2891a2e4f58b689c3895571716, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1462623562626304, guid: c6a78c2891a2e4f58b689c3895571716, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6a78c2891a2e4f58b689c3895571716, type: 2}
   m_IsPrefabParent: 0
