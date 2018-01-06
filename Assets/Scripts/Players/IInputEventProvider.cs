@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-using UniRx;
 
 namespace Players {
     interface IInputEventProvider
