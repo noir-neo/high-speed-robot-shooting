@@ -70,6 +70,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4430828264975380}
+  - component: {fileID: 114312981044998020}
   - component: {fileID: 114779095653380700}
   - component: {fileID: 54963145390717380}
   - component: {fileID: 135812946297447194}
@@ -273,6 +274,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114312981044998020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1777417162258512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0471a1c76d6c446a989a909287d3c91a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parameters:
+    _moveSpeed: 100
 --- !u!114 &114779095653380700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -284,6 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569c34678d74b41348c373a06c7f11d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerCore: {fileID: 0}
 --- !u!135 &135812946297447194
 SphereCollider:
   m_ObjectHideFlags: 1
