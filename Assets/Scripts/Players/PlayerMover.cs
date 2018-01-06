@@ -18,13 +18,23 @@ namespace Players
                 .Merge()
                 .Subscribe(Move)
                 .AddTo(this);
+
+            inputEventProviders.Select(x => x.AimDirection)
+                .Merge()
+                .Subscribe(Turn)
+                .AddTo(this);
         }
 
         private void Move(Vector3 direction)
         {
             var pos = transform.position;
-            pos += direction * _playerCore.PlayerParameters.MoveSpeed;
+            pos += transform.TransformDirection(direction) * _playerCore.PlayerParameters.MoveSpeed;
             transform.position = pos;
+        }
+
+        private void Turn(Vector2 direction)
+        {
+            transform.Rotate(Vector3.up, direction.x * _playerCore.PlayerParameters.TurnSpeed);
         }
     }
 }

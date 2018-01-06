@@ -81,6 +81,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1912251858362694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4481294362124296}
+  m_Layer: 0
+  m_Name: LookTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4129583251534820
 Transform:
   m_ObjectHideFlags: 1
@@ -133,8 +148,22 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4129583251534820}
+  - {fileID: 4481294362124296}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4481294362124296
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1912251858362694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.54, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4430828264975380}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23036775703244250
 MeshRenderer:
@@ -286,7 +315,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parameters:
-    _moveSpeed: 100
+    _moveSpeed: 10
+    _turnSpeed: 10
 --- !u!114 &114779095653380700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -298,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569c34678d74b41348c373a06c7f11d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerCore: {fileID: 0}
+  _playerCore: {fileID: 114312981044998020}
 --- !u!135 &135812946297447194
 SphereCollider:
   m_ObjectHideFlags: 1
