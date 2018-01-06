@@ -88,7 +88,7 @@ Transform:
   - {fileID: 4481294362124296}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4481294362124296
 Transform:
   m_ObjectHideFlags: 1
@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0471a1c76d6c446a989a909287d3c91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerId: 1
   _parameters:
     _moveSpeed: 10
     _turnSpeed: 10

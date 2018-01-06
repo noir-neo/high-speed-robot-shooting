@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
 
-namespace Players {
+namespace Players
+{
     interface IInputEventProvider
     {
-        IObservable<Vector3> MoveDirection { get; }
-        IObservable<Vector2> AimDirection { get; }
+        IObservable<Vector3> MoveDirection(PlayerId playerId);
+        IObservable<Vector2> AimDirection(PlayerId playerId);
     }
 }
