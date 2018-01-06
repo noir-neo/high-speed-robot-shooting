@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 
-namespace Players {
+namespace Players
+{
     public enum PlayerId
     {
         Player1 = 1,
@@ -19,10 +20,10 @@ namespace Players {
             Value = value;
         }
     }
-    
+
     interface IInputEventProvider
     {
         IObservable<Vector3> MoveDirection(PlayerId playerId);
-        IObservable<Vector2> AimDirection { get; }
+        IObservable<Vector2> AimDirection(PlayerId playerId);
     }
 }

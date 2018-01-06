@@ -2,55 +2,69 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
+using UniRx.Triggers;
 
-namespace Players.InputImpls {
+namespace Players.InputImpls
+{
     public class KeyboardInputEventProvider : MonoBehaviour, IInputEventProvider
     {
-        private class MovementMap {
-            public KeyCode KeyCode;
-            public Vector3 Direction;
-
-            public MovementMap(KeyCode keyCode, Vector3 direction)
-            {
-                KeyCode = keyCode;
-                Direction = direction;
-            }
-        }
-
-        private readonly static Dictionary<PlayerId, List<MovementMap>> PlayerMovementMaps = new Dictionary<PlayerId, List<MovementMap>>
+        private readonly static List<Tuple<KeyCode, Vector3>> Movements = new List<Tuple<KeyCode, Vector3>>
         {
-            [PlayerId.Player1] = {
-                new MovementMap(KeyCode.W, Vector3.forward),
-                new MovementMap(KeyCode.A, Vector3.left),
-                new MovementMap(KeyCode.S, Vector3.back),
-                new MovementMap(KeyCode.D, Vector3.right),
-                new MovementMap(KeyCode.LeftShift, Vector3.up),
-                new MovementMap(KeyCode.LeftControl, Vector3.down),
-            },
-            [PlayerId.Player2] = {
-                new MovementMap(KeyCode.UpArrow, Vector3.forward),
-                new MovementMap(KeyCode.LeftArrow, Vector3.left),
-                new MovementMap(KeyCode.DownArrow, Vector3.back),
-                new MovementMap(KeyCode.RightArrow, Vector3.right),
-                new MovementMap(KeyCode.RightShift, Vector3.up),
-                new MovementMap(KeyCode.Return, Vector3.down),
-            },
+            new Tuple<KeyCode, Vector3>(KeyCode.W, Vector3.forward),
+            new Tuple<KeyCode, Vector3>(KeyCode.A, Vector3.left),
+            new Tuple<KeyCode, Vector3>(KeyCode.S, Vector3.back),
+            new Tuple<KeyCode, Vector3>(KeyCode.D, Vector3.right),
+            new Tuple<KeyCode, Vector3>(KeyCode.LeftShift, Vector3.up),
+            new Tuple<KeyCode, Vector3>(KeyCode.LeftControl, Vector3.down),
         };
+
+        private readonly static List<Tuple<KeyCode, Vector2>> Aims = new List<Tuple<KeyCode, Vector2>>
+        {
+            new Tuple<KeyCode, Vector2>(KeyCode.UpArrow, Vector2.up),
+            new Tuple<KeyCode, Vector2>(KeyCode.LeftArrow, Vector2.left),
+            new Tuple<KeyCode, Vector2>(KeyCode.DownArrow, Vector2.down),
+            new Tuple<KeyCode, Vector2>(KeyCode.RightArrow, Vector2.right),
+        };
+
+        private IObservable<Unit> UpdateAsObservableForPlayerId(PlayerId playerId)
+        {
+            return this.UpdateAsObservable().Where(_ => {
+                var currentPlayerId = !Input.GetKey(KeyCode.RightAlt) ? PlayerId.Player1 : PlayerId.Player2;
+                return currentPlayerId == playerId;
+            });
+        }
 
         public IObservable<Vector3> MoveDirection(PlayerId playerId)
         {
-            return Observable.EveryUpdate().Select(_ => {
-                var res = Vector3.zero;
+            return this.UpdateAsObservableForPlayerId(playerId).Select(_ => {
+                var result = Vector3.zero;
 
-                foreach (var movementMap in PlayerMovementMaps[playerId])
+                foreach (var movement in Movements)
                 {
-                    if (Input.GetKey(movementMap.KeyCode))
+                    if (Input.GetKey(movement.Item1))
                     {
-                        res += movementMap.Direction;
+                        result += movement.Item2;
                     }
                 }
 
-                return res.normalized;
+                return result.normalized;
+            }).TakeUntilDestroy(this);
+        }
+
+        public IObservable<Vector2> AimDirection(PlayerId playerId)
+        {
+            return this.UpdateAsObservableForPlayerId(playerId).Select(_ => {
+                var result = Vector2.zero;
+
+                foreach (var aim in Aims)
+                {
+                    if (Input.GetKey(aim.Item1))
+                    {
+                        result += aim.Item2;
+                    }
+                }
+
+                return result.normalized;
             }).TakeUntilDestroy(this);
         }
     }

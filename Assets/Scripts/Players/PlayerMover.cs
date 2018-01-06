@@ -14,12 +14,12 @@ namespace Players
         [Inject]
         void Initialize(List<IInputEventProvider> inputEventProviders)
         {
-            inputEventProviders.Select(x => x.MoveDirection)
+            inputEventProviders.Select(x => x.MoveDirection(_playerCore.PlayerId))
                 .Merge()
                 .Subscribe(Move)
                 .AddTo(this);
 
-            inputEventProviders.Select(x => x.AimDirection)
+            inputEventProviders.Select(x => x.AimDirection(_playerCore.PlayerId))
                 .Merge()
                 .Subscribe(Turn)
                 .AddTo(this);
