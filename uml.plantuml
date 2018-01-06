@@ -24,10 +24,6 @@ namespace Players {
     class GamePadEventProvider
   }
   interface IInputEventProvider
-
-  namespace Cameras {
-    class ThirdPersonCamera
-  }
 }
 
 Players.IInputEventProvider <|-- Players.InputImpls.KeyboardEventProvider
@@ -43,14 +39,16 @@ Players.PlayerMover --> Players.PlayerCore
 Players.PlayerCore *- Players.PlayerParameters
 Players.PlayerFactory --> Players.PlayerCore
 
-namespace Attacks {
+namespace Bullets {
   namespace BulletImpls {
     class Bullet
   }
   interface IBullet
+  class BulletFactory
 }
 
-Attacks.IBullet <|-- Attacks.BulletImpls.Bullet
+Bullets.IBullet <|-- Bullets.BulletImpls.Bullet
+Bullets.BulletFactory --> Bullets.BulletImpls.Bullet
 
 namespace Damages {
   class Damage <<struct>> {
@@ -64,7 +62,7 @@ namespace Damages {
 
 Damages.IDamageApplicable <|-- Players.PlayerCore
 Damages.IDamageApplicable --> Damages.Damage
-Damages.DamageApplier --> Attacks.IBullet
+Damages.DamageApplier --> Bullets.IBullet
 Damages.DamageApplier --> Damages.Damage
 Damages.DamageApplier --> Damages.IDamageApplicable
 @enduml
