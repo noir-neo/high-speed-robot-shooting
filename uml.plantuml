@@ -1,0 +1,70 @@
+@startuml
+namespace GameManagers {
+  class GameManager
+  class PlayerProvider
+}
+
+GameManagers.PlayerProvider --> Players.PlayerFactory
+GameManagers.GameManager --> GameManagers.PlayerProvider
+
+namespace Players {
+  class PlayerCore {
+  }
+  class PlayerMover
+  class PlayerWeapon
+  class PlayerAnimator
+  class PlayerParameters <<struct>> {
+
+  }
+
+  class PlayerFactory
+
+  namespace InputImpls {
+    class KeyboardEventProvider
+    class GamePadEventProvider
+  }
+  interface IInputEventProvider
+
+  namespace Cameras {
+    class ThirdPersonCamera
+  }
+}
+
+Players.IInputEventProvider <|-- Players.InputImpls.KeyboardEventProvider
+Players.IInputEventProvider <|-- Players.InputImpls.GamePadEventProvider
+
+Players.PlayerMover --> Players.IInputEventProvider
+Players.PlayerWeapon --> Players.IInputEventProvider
+
+Players.PlayerAnimator --> Players.PlayerMover
+Players.PlayerAnimator --> Players.PlayerWeapon
+Players.PlayerAnimator --> Players.PlayerCore
+Players.PlayerMover --> Players.PlayerCore
+Players.PlayerCore *- Players.PlayerParameters
+Players.PlayerFactory --> Players.PlayerCore
+
+namespace Attacks {
+  namespace BulletImpls {
+    class Bullet
+  }
+  interface IBullet
+}
+
+Attacks.IBullet <|-- Attacks.BulletImpls.Bullet
+
+namespace Damages {
+  class Damage <<struct>> {
+
+  }
+  interface IDamageApplicable {
+    + void ApplyDamage(Damage damage)
+  }
+  class DamageApplier
+}
+
+Damages.IDamageApplicable <|-- Players.PlayerCore
+Damages.IDamageApplicable --> Damages.Damage
+Damages.DamageApplier --> Attacks.IBullet
+Damages.DamageApplier --> Damages.Damage
+Damages.DamageApplier --> Damages.IDamageApplicable
+@enduml
