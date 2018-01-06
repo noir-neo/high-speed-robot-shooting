@@ -19,8 +19,10 @@ namespace Players {
             Value = value;
         }
     }
+    
     interface IInputEventProvider
     {
         IObservable<Vector3> MoveDirection(PlayerId playerId);
+        IObservable<Vector2> AimDirection { get; }
     }
 }
