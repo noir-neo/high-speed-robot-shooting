@@ -32,6 +32,7 @@ namespace Players
         {
             inputEventProviders.Select(x => x.ShootButton(_playerCore.PlayerId))
                 .Merge()
+                .TakeUntil(_playerCore.Explode)
                 .Where(x => x)
                 .Subscribe(Shoot)
                 .AddTo(this);

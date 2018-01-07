@@ -188,8 +188,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 229770075}
-  m_LocalRotation: {x: 0.118659705, y: 0, z: 0, w: 0.992935}
-  m_LocalPosition: {x: 0, y: 2.67, z: -6.88}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -314,30 +314,36 @@ Prefab:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
-    - target: {fileID: 23004565265290750, guid: d40588ab7d4d24ad39b25ad1dad37f57,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: fe87e079f1a1642049a8766b9f7759f1, type: 2}
     - target: {fileID: 4744218960129606, guid: d40588ab7d4d24ad39b25ad1dad37f57, type: 2}
       propertyPath: m_LocalPosition.z
       value: -6.880001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1260104926602026, guid: d40588ab7d4d24ad39b25ad1dad37f57, type: 2}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 114312981044998020, guid: d40588ab7d4d24ad39b25ad1dad37f57,
         type: 2}
       propertyPath: _playerId
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1260104926602026, guid: d40588ab7d4d24ad39b25ad1dad37f57, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1469725853574516, guid: d40588ab7d4d24ad39b25ad1dad37f57, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 1777417162258512, guid: d40588ab7d4d24ad39b25ad1dad37f57, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23004565265290750, guid: d40588ab7d4d24ad39b25ad1dad37f57,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fe87e079f1a1642049a8766b9f7759f1, type: 2}
+    - target: {fileID: 114312981044998020, guid: d40588ab7d4d24ad39b25ad1dad37f57,
+        type: 2}
+      propertyPath: _parameters._hp
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 135812946297447194, guid: d40588ab7d4d24ad39b25ad1dad37f57,
+        type: 2}
+      propertyPath: m_Radius
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
