@@ -1,7 +1,9 @@
-﻿namespace Weapons
+﻿using Players;
+
+namespace Weapons
 {
     interface IWeapon
     {
-        void Shoot();
+        void Shoot(PlayerId playerId);
     }
 }

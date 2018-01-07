@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using Zenject.SpaceFighter;
+﻿using Players;
+using UnityEngine;
 using Bullet = Bullets.BulletImpls.Bullet;
 
 namespace Weapons.WeaponImpls
@@ -15,12 +15,12 @@ namespace Weapons.WeaponImpls
             _followTransform.target = root;
         }
 
-        void IWeapon.Shoot()
+        void IWeapon.Shoot(PlayerId playerId)
         {
             // HACK: Trail 出ちゃうので
             var bullet = Instantiate(_bulletPrefab, _muzzle);
             bullet.transform.SetParent(null);
-            bullet.Fire(transform.forward);
+            bullet.Fire(transform.forward, playerId);
         }
     }
 }
