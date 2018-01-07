@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 using Zenject;
 
@@ -17,12 +18,18 @@ namespace Players
         {
             inputEventProviders.Select(x => x.MoveDirection(_playerCore.PlayerId))
                 .Merge()
+                .SelectMany(_ => this.FixedUpdateAsObservable(), (direction, _) => direction)
+                .First()
+                .Repeat()
                 .TakeUntil(_playerCore.Explode)
                 .Subscribe(Move)
                 .AddTo(this);
 
             inputEventProviders.Select(x => x.AimDirection(_playerCore.PlayerId))
                 .Merge()
+                .SelectMany(_ => this.FixedUpdateAsObservable(), (direction, _) => direction)
+                .First()
+                .Repeat()
                 .TakeUntil(_playerCore.Explode)
                 .Subscribe(Turn)
                 .AddTo(this);
