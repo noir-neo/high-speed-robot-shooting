@@ -10,6 +10,7 @@ namespace Players
     public class PlayerMover : MonoBehaviour
     {
         [SerializeField] private PlayerCore _playerCore;
+        [SerializeField] private Rigidbody _rigidbody;
 
         [Inject]
         void Initialize(List<IInputEventProvider> inputEventProviders)
@@ -31,12 +32,14 @@ namespace Players
         {
             var pos = transform.position;
             pos += transform.TransformDirection(direction) * _playerCore.PlayerParameters.MoveSpeed;
-            transform.position = pos;
+            _rigidbody.MovePosition(pos);
         }
 
         private void Turn(Vector2 direction)
         {
-            transform.Rotate(Vector3.up, direction.x * _playerCore.PlayerParameters.TurnSpeed);
+            var rotation = transform.rotation;
+            rotation *= Quaternion.AngleAxis(direction.x * _playerCore.PlayerParameters.TurnSpeed, Vector3.up);
+            _rigidbody.MoveRotation(rotation);
         }
     }
 }

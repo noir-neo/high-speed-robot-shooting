@@ -264,22 +264,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 23004565265290750, guid: d40588ab7d4d24ad39b25ad1dad37f57,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a86c993ca98ee4fe68893e9ec37fbcfd, type: 2}
     - target: {fileID: 1777417162258512, guid: d40588ab7d4d24ad39b25ad1dad37f57, type: 2}
       propertyPath: m_Name
       value: Player1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1260104926602026, guid: d40588ab7d4d24ad39b25ad1dad37f57, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1777417162258512, guid: d40588ab7d4d24ad39b25ad1dad37f57, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d40588ab7d4d24ad39b25ad1dad37f57, type: 2}
