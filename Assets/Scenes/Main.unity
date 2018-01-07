@@ -140,10 +140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71728ed1431c64f57be0827b8f433b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meteorCount: 1000
+  _meteorCount: 500
   _positionRangeX: 1000
   _positionRangeY: 500
-  _positionRangeZ: 10000
+  _positionRangeZ: 5000
   _scaleMin: 50
   _scaleMax: 100
 --- !u!4 &181891737
@@ -354,6 +354,16 @@ Prefab:
         type: 2}
       propertyPath: m_Radius
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114312981044998020, guid: d40588ab7d4d24ad39b25ad1dad37f57,
+        type: 2}
+      propertyPath: _parameters._moveSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114312981044998020, guid: d40588ab7d4d24ad39b25ad1dad37f57,
+        type: 2}
+      propertyPath: _parameters._turnSpeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d40588ab7d4d24ad39b25ad1dad37f57, type: 2}
