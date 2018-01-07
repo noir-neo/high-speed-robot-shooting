@@ -18,18 +18,14 @@ namespace Players
         {
             inputEventProviders.Select(x => x.MoveDirection(_playerCore.PlayerId))
                 .Merge()
-                .SelectMany(_ => this.FixedUpdateAsObservable(), (direction, _) => direction)
-                .First()
-                .Repeat()
+                .SelectMany(_ => this.UpdateAsObservable(), (direction, _) => direction)
                 .TakeUntil(_playerCore.Explode)
                 .Subscribe(Move)
                 .AddTo(this);
 
             inputEventProviders.Select(x => x.AimDirection(_playerCore.PlayerId))
                 .Merge()
-                .SelectMany(_ => this.FixedUpdateAsObservable(), (direction, _) => direction)
-                .First()
-                .Repeat()
+                .SelectMany(_ => this.UpdateAsObservable(), (direction, _) => direction)
                 .TakeUntil(_playerCore.Explode)
                 .Subscribe(Turn)
                 .AddTo(this);
