@@ -16,11 +16,11 @@ namespace Players.InputImpls
 
         private IObservable<GamePadInput> GamePadInputAsObservable(PlayerId playerId)
         {
-            return this.UpdateAsObservable()
-                .Where(_ => Input.GetJoystickNames().Length >= (int)playerId)
-                .Select(_ =>
+            return this.UpdateAsObservable().
+                Where(_ => Input.GetJoystickNames().Length >= (int)playerId).
+                Select(_ =>
                 {
-                    var joystickId = _joystickIds[playerId];;
+                    var joystickId = _joystickIds[playerId];
 
                     var buttons = new bool[20];
                     for (int i = 0; i < buttons.Length; i++)
