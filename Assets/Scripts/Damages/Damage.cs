@@ -1,4 +1,5 @@
 ﻿using System;
+using Players;
 
 namespace Damages
 {
@@ -6,5 +7,6 @@ namespace Damages
     public struct Damage
     {
         public int Value;
+        public PlayerId Shooter;
     }
 }

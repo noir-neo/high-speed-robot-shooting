@@ -23,6 +23,7 @@ namespace Players
 
         public void ApplyDamage(Damage damage)
         {
+            if (damage.Shooter == _playerId) return;
             _hp.Value -= damage.Value;
         }
     }

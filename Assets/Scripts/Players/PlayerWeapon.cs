@@ -42,7 +42,7 @@ namespace Players
         {
             foreach (var weapon in _weapons)
             {
-                weapon.Shoot();
+                weapon.Shoot(_playerCore.PlayerId);
             }
         }
     }

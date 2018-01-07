@@ -157,8 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1487f581dc63c48a4a38c971ba1e9684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage:
+  Damage:
     Value: 100
+    Shooter: 0
 --- !u!114 &114928078420480654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -173,6 +174,7 @@ MonoBehaviour:
   _rigidbody: {fileID: 54096909783208826}
   _speed: 25
   _destroyTime: 1
+  _damageApplier: {fileID: 114058274246860696}
 --- !u!135 &135104123724153176
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -4,13 +4,13 @@ namespace Damages
 {
     public class DamageApplier : MonoBehaviour
     {
-        [SerializeField] private Damage _damage;
+        public Damage Damage;
 
         void OnTriggerEnter(Collider collider)
         {
             foreach (var damageApplicablet in collider.GetComponents<IDamageApplicable>())
             {
-                damageApplicablet.ApplyDamage(_damage);
+                damageApplicablet.ApplyDamage(Damage);
             }
         }
     }
