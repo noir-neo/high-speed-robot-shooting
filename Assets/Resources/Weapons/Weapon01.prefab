@@ -166,4 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be32e5e0253e43dfb7e140b20bf65d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bulletPrefab: {fileID: 114928078420480654, guid: 752e81d2ff652478a8c23c5a586c1369,
+    type: 2}
   _followTransform: {fileID: 114664896949742260}
+  _muzzle: {fileID: 4900171459171206}
