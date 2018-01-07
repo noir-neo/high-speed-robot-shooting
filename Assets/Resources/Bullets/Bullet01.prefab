@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 135104123724153176}
   - component: {fileID: 114928078420480654}
   - component: {fileID: 96221205479313588}
+  - component: {fileID: 114058274246860696}
   m_Layer: 0
   m_Name: Bullet01
   m_TagString: Untagged
@@ -145,6 +146,19 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!114 &114058274246860696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1407020921832746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1487f581dc63c48a4a38c971ba1e9684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage:
+    Value: 100
 --- !u!114 &114928078420480654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -157,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 54096909783208826}
-  _speed: 1000
+  _speed: 25
   _destroyTime: 1
 --- !u!135 &135104123724153176
 SphereCollider:
@@ -166,7 +180,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1407020921832746}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.1
