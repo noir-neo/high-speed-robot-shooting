@@ -39,6 +39,7 @@ namespace Players
         {
             var rotation = transform.rotation;
             rotation *= Quaternion.AngleAxis(direction.x * _playerCore.PlayerParameters.TurnSpeed, Vector3.up);
+            rotation *= Quaternion.AngleAxis(direction.y * _playerCore.PlayerParameters.TurnSpeed, Vector3.right);
             _rigidbody.MoveRotation(rotation);
         }
     }
