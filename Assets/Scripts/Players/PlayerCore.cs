@@ -15,6 +15,7 @@ namespace Players
         private readonly IntReactiveProperty _hp = new IntReactiveProperty(0);
 
         public IObservable<Unit> Explode => _hp.Skip(1).SkipWhile(x => x > 0).AsUnitObservable();
+        public IObservable<Unit> Damage => _hp.Pairwise((prev, current) => prev - current).AsUnitObservable();
 
         void Awake()
         {
