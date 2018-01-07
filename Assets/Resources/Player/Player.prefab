@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4104194891963702}
   - component: {fileID: 33466395716936082}
   - component: {fileID: 23004565265290750}
+  - component: {fileID: 114394820088505592}
   m_Layer: 0
   m_Name: "\u7403"
   m_TagString: Untagged
@@ -231,6 +232,24 @@ MonoBehaviour:
   _parameters:
     _moveSpeed: 10
     _turnSpeed: 10
+--- !u!114 &114394820088505592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1393527745244864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02cd39694c3324f0baad654ea544f5b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCore: {fileID: 114312981044998020}
+  _renderer: {fileID: 23004565265290750}
+  _materials:
+  - _playerId: 1
+    _material: {fileID: 2100000, guid: a86c993ca98ee4fe68893e9ec37fbcfd, type: 2}
+  - _playerId: 2
+    _material: {fileID: 2100000, guid: fe87e079f1a1642049a8766b9f7759f1, type: 2}
 --- !u!114 &114540458329081184
 MonoBehaviour:
   m_ObjectHideFlags: 1
