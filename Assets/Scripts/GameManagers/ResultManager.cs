@@ -22,8 +22,7 @@ namespace GameManagers
                 .ContinueWith(_ => creditController.ShowCreditAsObservable())
                 .Concat()
                 .ContinueWith(_ => Observable.Timer(TimeSpan.FromSeconds(1)))
-                .ContinueWith(_ => SceneManager.LoadSceneAsync("Title", LoadSceneMode.Additive).AsObservable())
-                .ContinueWith(_ => SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()).AsObservable())
+                .ContinueWith(_ => SceneManager.LoadSceneAsync("Title", LoadSceneMode.Single).AsObservable())
                 .Subscribe()
                 .AddTo(this);
         }

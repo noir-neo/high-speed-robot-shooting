@@ -10,8 +10,7 @@ namespace Titles
         void Awake()
         {
             Observable.Timer(TimeSpan.FromSeconds(2))
-                .ContinueWith(_ => SceneManager.LoadSceneAsync("Main", LoadSceneMode.Additive).AsObservable())
-                .ContinueWith(_ => SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()).AsObservable())
+                .ContinueWith(_ => SceneManager.LoadSceneAsync("Main", LoadSceneMode.Single).AsObservable())
                 .Subscribe()
                 .AddTo(this);
         }
