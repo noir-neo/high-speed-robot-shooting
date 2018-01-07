@@ -168,6 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 229770079}
   - component: {fileID: 229770078}
+  - component: {fileID: 229770081}
   - component: {fileID: 229770077}
   - component: {fileID: 229770076}
   - component: {fileID: 229770080}
@@ -200,7 +201,7 @@ Camera:
   m_GameObject: {fileID: 229770075}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -317,6 +318,14 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d40588ab7d4d24ad39b25ad1dad37f57, type: 2}
   m_IsPrefabParent: 0
+--- !u!45 &229770081
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 229770075}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 22891d621055b4db295347363db04a37, type: 2}
 --- !u!1001 &630123372
 Prefab:
   m_ObjectHideFlags: 0
@@ -452,6 +461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1756799093}
   - component: {fileID: 1756799092}
+  - component: {fileID: 1756799094}
   - component: {fileID: 1756799091}
   - component: {fileID: 1756799090}
   - component: {fileID: 1756799089}
@@ -514,7 +524,7 @@ Camera:
   m_GameObject: {fileID: 1756799088}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -555,6 +565,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &1756799094
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1756799088}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 22891d621055b4db295347363db04a37, type: 2}
 --- !u!1 &2066985275
 GameObject:
   m_ObjectHideFlags: 0
