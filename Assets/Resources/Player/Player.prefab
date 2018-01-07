@@ -693,8 +693,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerId: 1
   _parameters:
-    _moveSpeed: 10
-    _turnSpeed: 10
+    _moveSpeed: 3
+    _turnSpeed: 3
     _hp: 500
 --- !u!114 &114338145069298900
 MonoBehaviour:
