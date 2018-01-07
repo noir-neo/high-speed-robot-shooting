@@ -1,0 +1,6 @@
+﻿namespace Bullets
+{
+    interface IBullet
+    {
+    }
+}

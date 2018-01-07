@@ -69,5 +69,12 @@ namespace Players.InputImpls
                 ).
                 TakeUntilDestroy(this);
         }
+
+        public IObservable<bool> ShootButton(PlayerId playerId)
+        {
+            return GamePadInputAsObservable(playerId)
+                .Select(x => x.Button(GamePadInput.Buttons.Right1))
+                .TakeUntilDestroy(this);
+        }
     }
 }
